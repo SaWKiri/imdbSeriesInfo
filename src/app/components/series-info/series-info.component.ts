@@ -35,7 +35,7 @@ export class SeriesInfoComponent implements OnInit {
     return this.imdbApiService.getSeriesEpisodeList(series, season);
   }
 
-  seriesSelectionChange(series: any) {
+  seriesSelectionChange(series: string) {
     this.seasons = null;
     this.gridData = [];
     this.selectedSeries = series;
@@ -56,7 +56,7 @@ export class SeriesInfoComponent implements OnInit {
     }
   }
 
-  seasonSelectionChange(seasonNumber: any) {
+  seasonSelectionChange(seasonNumber: number) {
     this.selectedSeason = seasonNumber;
     this.getSeriesData(this.selectedSeries, seasonNumber)
       .pipe(tap((epList) => (this.gridData = epList.Episodes)))
@@ -81,7 +81,7 @@ export class SeriesInfoComponent implements OnInit {
       .subscribe();
   }
 
-  dialogClosing(val) {
+  dialogClosing(val: boolean) {
     this.isOpen = val;
   }
 }

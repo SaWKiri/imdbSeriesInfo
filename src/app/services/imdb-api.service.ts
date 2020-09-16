@@ -4,7 +4,6 @@ import { environment } from '../../environments/environment';
 import { repositoryUrl } from './repository-url';
 import { SeriesData } from '../models/seriesData';
 import { EpisodeInfo } from '../models/episodeInfo';
-import { SeriesInfo } from '../models/seriesInfo';
 
 @Injectable({
   providedIn: 'root',
@@ -24,9 +23,6 @@ export class ImdbApiService {
       const params = new HttpParams({ fromObject: { apikey: this.API_KEY } });
       return this.httpClient.get<T>(url, { params });
     }
-  }
-  public getSeriesInfo(t: string) {
-    return this.getRequest<SeriesInfo>(repositoryUrl.repositoryUrlTVSeries, { t });
   }
 
   public getSeriesEpisodeList(t: string, season: number) {
