@@ -1,0 +1,19 @@
+<kendo-dialog  *ngIf="isOpen" [minWidth]="500" [width]="900" class="episodeInfo">
+  <div class="info_section">
+    <div class="movie_header">
+      <img class="locandina" src={{episodeInfo.Poster}}/>
+      <h1><b>{{episodeInfo.Title}}</b>, Episode #{{episodeInfo.Episode}}</h1>
+      <h4>{{episodeInfo.Year}}</h4>
+      <span class="minutes">{{episodeInfo.Runtime}}</span>
+      <p class="type">{{episodeInfo.Genre}}</p>
+    </div>
+    <div class="movie_desc">
+      <p class="text">
+        {{episodeInfo.Plot}}
+      </p>
+    </div>
+  </div>
+  <kendo-dialog-actions>
+      <button kendoButton (click)="action()" primary="true">Close</button>
+  </kendo-dialog-actions>
+</kendo-dialog>

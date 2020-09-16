@@ -1,0 +1,32 @@
+<div class="table-header">
+  <div class="wrapper">
+    <p>Choose TV Series:</p>
+    <kendo-dropdownlist
+      [data]="listItems"
+      (selectionChange)="seriesSelectionChange($event)"
+    ></kendo-dropdownlist>
+  </div>
+  <div class="wrapper">
+    <p>Choose Season:</p>
+    <kendo-dropdownlist
+      [data]="seasons"
+      (selectionChange)="seasonSelectionChange($event)"
+    ></kendo-dropdownlist>
+  </div>
+</div>
+<kendo-grid
+  [data]="gridData"
+  [height]="410"
+  [selectable]="true"
+  (cellClick)="cellClick($event)"
+>
+  <kendo-grid-column field="Title" title="Title" width="250">
+  </kendo-grid-column>
+  <kendo-grid-column field="Released" title="Released" width="80">
+  </kendo-grid-column>
+  <kendo-grid-column field="Episode" title="Episode" width="40">
+  </kendo-grid-column>
+  <kendo-grid-column field="imdbRating" title="imdbRating" width="80">
+  </kendo-grid-column>
+</kendo-grid>
+<app-episode-dialog [isOpen]="isOpen" [episodeInfo]="episodeInfo" (dialogClosing)="dialogClosing($event)"></app-episode-dialog>
